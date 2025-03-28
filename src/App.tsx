@@ -1,11 +1,16 @@
 import "./App.css";
-import { Button } from "./components/ui/button";
+import { AppSidebar } from "./components/appSidebar";
+import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 
-function App() {
+function App({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Button>Click me</Button>
-    </>
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }
 
